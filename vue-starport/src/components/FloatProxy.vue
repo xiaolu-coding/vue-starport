@@ -18,7 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="el" bg-gray-400:10>
+  <div ref="el">
     <slot />
   </div>
 </template>

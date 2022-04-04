@@ -1,3 +1,12 @@
+<script setup lang="ts">
+let size = $(useStorage('size', 100))
+
+function enlarge() {
+  size += 20
+}
+
+</script>
+
 <template>
   <div flex="~ col" items-center>
     <div>
@@ -9,9 +18,12 @@
         >
           Back
         </RouterLink>
+        <button @click="enlarge()">
+          Enlarge
+        </button>
       </div>
       <div m10>
-        <FloatProxy w-60 h-60 rounded="1/2" />
+        <FloatProxy :style="{width: size + 'px', height: size + 'px'}" rounded="1/2" />
       </div>
     </div>
   </div>
