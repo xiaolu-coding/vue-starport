@@ -1,14 +1,18 @@
 <template>
-  <div>
-    <div>Foo</div>
+  <div flex="~ col" items-center>
     <div>
-      <RouterLink
-        class="m-3 text-sm btn"
-        to="/"
-      >
-        Back
-      </RouterLink>
+      <div>Foo</div>
+      <div>
+        <RouterLink
+          class="m-3 text-sm btn"
+          to="/"
+        >
+          Back
+        </RouterLink>
+      </div>
+      <div m10>
+        <FloatProxy w-60 h-60 rounded="1/2" />
+      </div>
     </div>
-    <FloatProxy w-100 h-100 rounded-xl m10 />
   </div>
 </template>
