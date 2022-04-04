@@ -2,7 +2,8 @@
 import type { StyleValue } from 'vue'
 import { metadata, proxyEL } from '~/composables/floating'
 
-const rect = reactive(useElementBounding(proxyEL))
+// const rect = reactive(useElementBounding(proxyEL))
+let rect = $ref<DOMRect | undefined>()
 
 const style = computed((): StyleValue => {
   return {
@@ -12,6 +13,22 @@ const style = computed((): StyleValue => {
     top: `${rect?.top ?? 0}px`,
   }
 })
+
+function update() {
+  rect = proxyEL.value?.getBoundingClientRect()
+}
+
+useMutationObserver(proxyEL, update, {
+  childList: true,
+  subtree: true,
+  attributes: true,
+  characterData: true,
+})
+
+useEventListener('resize', update)
+
+watchEffect(update)
+
 </script>
 
 <template>
