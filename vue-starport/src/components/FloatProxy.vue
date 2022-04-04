@@ -1,0 +1,3 @@
+<template>
+  Proxy
+</template>
