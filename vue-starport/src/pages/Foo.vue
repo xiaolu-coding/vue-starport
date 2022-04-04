@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { TheImageProxy } from '../composables/image'
 let size = $(useStorage('size', 100))
 
 function enlarge() {
@@ -30,7 +31,7 @@ function reset() {
         </button>
       </div>
       <div m10 flex="~ col sm:row gap-4" items-center>
-        <FloatProxy :style="{width: size + 'px', height: size + 'px'}" rounded="1/2" />
+        <TheImageProxy :style="{width: size + 'px', height: size + 'px'}" rounded="1/2" />
         <p flex-1>
           dsakdjkasd sdjajsdkasdw wo asdakdja edwposa, asjdkasjdkak ,asdalsdkalsd, adlkadlakwadasdas,asdkaskdjwjaksdkaslkdlakdzxcas. asdadadk adkal,.casd
         </p>
