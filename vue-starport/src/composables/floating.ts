@@ -2,7 +2,13 @@
 import { h } from 'vue'
 import type { Component, StyleValue } from 'vue'
 
-export function createFloating<T extends Component>(component: T) {
+interface FloatingOptions {
+  durations: number
+}
+
+export function createFloating<T extends Component>(component: T, options: FloatingOptions = {}) {
+  const { durations = 1500 } = options
+
   const metadata = reactive<any>({
     props: {},
     attrs: {},
@@ -16,14 +22,13 @@ export function createFloating<T extends Component>(component: T) {
 
       const style = computed((): StyleValue => {
         const fixed: StyleValue = {
-          transition: 'all .3s ease-in-out',
+          transition: `all ${durations}ms ease-in-out`,
           position: 'fixed',
         }
         if (!rect || !proxyEL.value) {
           return {
-            ...fixed,
+            position: 'fixed',
             opacity: 0,
-            transform: 'translate(-50%, -50%) scale(0)',
             pointerEvents: 'none',
           }
         }
@@ -68,7 +73,7 @@ export function createFloating<T extends Component>(component: T) {
       // 卸载的话，清空el
       onBeforeUnmount(() => {
         // if (proxyEL.value === el.value)
-        proxyEL.value = null
+        // proxyEL.value = null
       })
 
       return () => h('div', { ref: el }, [

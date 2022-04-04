@@ -14,28 +14,19 @@ function reset() {
 
 <template>
   <div flex="~ col" items-center>
-    <div>
-      <div>Foo</div>
-      <div>
-        <RouterLink
-          class="m-3 text-sm btn"
-          to="/"
-        >
-          Back
-        </RouterLink>
-        <button btn @click="enlarge()">
-          Enlarge
-        </button>
-        <button btn @click="reset()">
-          Reset
-        </button>
-      </div>
-      <div m10 flex="~ col sm:row gap-4" items-center>
-        <TheImageProxy :style="{width: size + 'px', height: size + 'px'}" rounded="1/2" />
-        <p flex-1>
-          dsakdjkasd sdjajsdkasdw wo asdakdja edwposa, asjdkasjdkak ,asdalsdkalsd, adlkadlakwadasdas,asdkaskdjwjaksdkaslkdlakdzxcas. asdadadk adkal,.casd
-        </p>
-      </div>
+    <div flex="~ gap-2">
+      <button btn @click="enlarge()">
+        Enlarge
+      </button>
+      <button btn @click="reset()">
+        Reset
+      </button>
+    </div>
+    <div m10 flex="~ col sm:row gap-4" items-center>
+      <TheImageProxy :style="{width: size + 'px', height: size + 'px'}" rounded="1/2" />
+      <p flex-1>
+        dsakdjkasd sdjajsdkasdw wo asdakdja edwposa, asjdkasjdkak ,asdalsdkalsd, adlkadlakwadasdas,asdkaskdjwjaksdkaslkdlakdzxcas. asdadadk adkal,.casd
+      </p>
     </div>
   </div>
 </template>
